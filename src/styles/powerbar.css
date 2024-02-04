@@ -1,0 +1,913 @@
+input {
+  display: none;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 2em;
+  padding: 0;
+}
+section:last-of-type {
+  margin-bottom: 0;
+}
+section article {
+  align-self: center;
+  width: 20em;
+  margin-bottom: 2em;
+}
+section article p,
+section article:last-of-type {
+  margin-bottom: 0;
+}
+
+/* p {
+  line-height: 1.5em;
+  max-width: 20em;
+  margin: 1.5em auto 2em;
+  padding-bottom: 1.5em;
+}
+p span {
+  display: block;
+} */
+
+.container {
+  z-index: 1;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 4em;
+}
+
+/*
+*
+*
+START // CHART'S RULES
+
+*/
+.chart {
+  font-size: 1em;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  backface-visibility: visible;
+}
+
+.bar {
+  font-size: 1em;
+  position: relative;
+  height: 10em;
+  transition: all 0.3s ease-in-out;
+  transform: rotateX(60deg) rotateY(0deg);
+  transform-style: preserve-3d;
+}
+.bar .face {
+  font-size: 2em;
+  position: relative;
+  width: 100%;
+  height: 2em;
+  background-color: rgba(254, 254, 254, 0.3);
+}
+.bar .face.side-a,
+.bar .face.side-b {
+  width: 2em;
+}
+.bar .side-a {
+  transform: rotateX(90deg) rotateY(-90deg) translateX(2em) translateY(1em) translateZ(1em);
+}
+.bar .side-b {
+  transform: rotateX(90deg) rotateY(-90deg) translateX(4em) translateY(1em) translateZ(-1em);
+  position: absolute;
+  right: 0;
+}
+.bar .side-0 {
+  transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(-1em);
+}
+.bar .side-1 {
+  transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(3em);
+}
+.bar .top {
+  transform: rotateX(0deg) rotateY(0) translateX(0em) translateY(4em) translateZ(2em);
+}
+.bar .floor {
+  box-shadow: 0 0.1em 0.6em rgba(0, 0, 0, 0.3), 0.6em -0.5em 3em rgba(0, 0, 0, 0.3), 1em -1em 8em #fefefe;
+}
+
+.filling-bar {
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(255, 165, 0, 0.6);
+  width: 100%;
+  height: 2em;
+}
+
+/* Powerbar Colors */
+/*
+/*
+/* Prismatic */
+.bar.prismatic .side-a,
+input[id="prismatic"]:checked ~ .chart .side-a,
+.bar.prismatic .filling-bar,
+input[id="prismatic"]:checked ~ .chart .filling-bar {
+  background-color: rgba(255, 232, 244, 0.6);
+}
+
+.bar.prismatic .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #ffe8f4;
+}
+
+.bar.prismatic .floor .filling-bar {
+  box-shadow: 0em 0em 2em #ffe8f4;
+}
+
+/* Water */
+.bar.water .side-a,
+input[class="water"]:checked ~ .chart .side-a,
+.bar.water .filling-bar,
+input[class="water"]:checked ~ .chart .filling-bar {
+  background-color: rgba(10, 170, 255, 0.6);
+}
+
+.bar.water .side-0 .filling-bar,
+input[class="water"]:checked ~ .chart .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #0aaaff;
+}
+
+.bar.water .floor .filling-bar,
+input[class="water"]:checked ~ .chart .floor .filling-bar {
+  box-shadow: 0em 0em 2em #0aaaff;
+}
+
+/* Lightning */
+.bar.lightning .side-a,
+input[id="lightning"]:checked ~ .chart .side-a,
+.bar.lightning .filling-bar,
+input[id="lightning"]:checked ~ .chart .filling-bar {
+  background-color: rgba(255, 255, 0, 0.6);
+}
+
+.bar.lightning .side-0 .filling-bar,
+input[id="lightning"]:checked ~ .chart .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em yellow;
+}
+
+.bar.lightning .floor .filling-bar,
+input[id="lightning"]:checked ~ .chart .floor .filling-bar {
+  box-shadow: 0em 0em 2em yellow;
+}
+
+/* Plasma */
+.bar.plasma .side-a,
+input[id="plasma"]:checked ~ .chart .side-a,
+.bar.plasma .filling-bar,
+input[id="plasma"]:checked ~ .chart .filling-bar {
+  background-color: rgba(255, 0, 0, 0.6);
+}
+
+.bar.plasma .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em red;
+}
+
+.bar.plasma .floor .filling-bar {
+  box-shadow: 0em 0em 2em red;
+}
+
+/* Nature */
+.bar.nature .side-a,
+input[id="nature"]:checked ~ .chart .side-a,
+.bar.nature .filling-bar,
+input[id="nature"]:checked ~ .chart .filling-bar {
+  background-color: rgba(0, 221, 0, 0.6);
+}
+
+.bar.nature .side-0 .filling-bar,
+input[id="nature"]:checked ~ .chart .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #00dd00;
+}
+
+.bar.nature .floor .filling-bar,
+input[id="nature"]:checked ~ .chart .floor .filling-bar {
+  box-shadow: 0em 0em 2em #00dd00;
+}
+
+/* Fire */
+.bar.fire .side-a,
+input[id="fire"]:checked ~ .chart .side-a,
+.bar.fire .filling-bar,
+input[id="fire"]:checked ~ .chart .filling-bar {
+  background-color: rgba(255, 165, 0, 0.6);
+}
+
+.bar.fire .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em orange;
+}
+
+.bar.fire .floor .filling-bar {
+  box-shadow: 0em 0em 2em orange;
+}
+
+/* Poison */
+.bar.poison .side-a,
+input[id="poison"]:checked ~ .chart .side-a,
+.bar.poison .filling-bar,
+input[id="poison"]:checked ~ .chart .filling-bar {
+  background-color: rgba(198, 0, 255, 0.6);
+}
+
+.bar.poison .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #c600ff;
+}
+
+.bar.poison .floor .filling-bar {
+  box-shadow: 0em 0em 2em #c600ff;
+}
+
+/* Earth */
+.bar.earth .side-a,
+input[id="earth"]:checked ~ .chart .side-a,
+.bar.earth .filling-bar,
+input[id="earth"]:checked ~ .chart .filling-bar {
+  background-color: rgba(205, 146, 26, 0.6);
+}
+
+.bar.earth .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #cd921a;
+}
+
+.bar.earth .floor .filling-bar {
+  box-shadow: 0em 0em 2em #cd921a;
+}
+
+/* Psychic */
+.bar.psychic .side-a,
+input[id="psychic"]:checked ~ .chart .side-a,
+.bar.psychic .filling-bar,
+input[id="psychic"]:checked ~ .chart .filling-bar {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.bar.psychic .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em white;
+}
+
+.bar.psychic .floor .filling-bar {
+  box-shadow: 0em 0em 2em white;
+}
+
+/* Death */
+.bar.death .side-a,
+input[id="death"]:checked ~ .chart .side-a,
+.bar.death .filling-bar,
+input[id="death"]:checked ~ .chart .filling-bar {
+  background-color: rgba(66, 66, 66, 0.6);
+}
+
+.bar.death .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #424242;
+}
+
+.bar.death .floor .filling-bar {
+  box-shadow: 0em 0em 2em #424242;
+}
+
+/* Metal */
+.bar.metal .side-a,
+input[id="metal"]:checked ~ .chart .side-a,
+.bar.metal .filling-bar,
+input[id="metal"]:checked ~ .chart .filling-bar {
+  background-color: rgba(221, 221, 221, 0.6);
+}
+
+.bar.metal .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #dddddd;
+}
+
+.bar.metal .floor .filling-bar {
+  box-shadow: 0em 0em 2em #dddddd;
+}
+
+/* Shadow */
+.bar.shadow .side-a,
+input[id="shadow"]:checked ~ .chart .side-a,
+.bar.shadow .filling-bar,
+input[id="shadow"]:checked ~ .chart .filling-bar {
+  background-color: rgba(99, 1, 166, 0.6);
+}
+
+.bar.shadow .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #6301a6;
+}
+
+.bar.shadow .floor .filling-bar {
+  box-shadow: 0em 0em 2em #6301a6;
+}
+
+/* Creature */
+.bar.creature .side-a,
+input[id="creature"]:checked ~ .chart .side-a,
+.bar.creature .filling-bar,
+input[id="creature"]:checked ~ .chart .filling-bar {
+  background-color: rgba(255, 0, 255, 0.6);
+}
+
+.bar.creature .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em magenta;
+}
+
+.bar.creature .floor .filling-bar {
+  box-shadow: 0em 0em 2em magenta;
+}
+
+/* Plague */
+.bar.plague .side-a,
+input[id="plague"]:checked ~ .chart .side-a,
+.bar.plague .filling-bar,
+input[id="plague"]:checked ~ .chart .filling-bar {
+  background-color: rgba(206, 238, 0, 0.6);
+}
+
+.bar.plague .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #ceee00;
+}
+
+.bar.plague .floor .filling-bar {
+  box-shadow: 0em 0em 2em #ceee00;
+}
+
+/* Life */
+.bar.life .side-a,
+input[id="life"]:checked ~ .chart .side-a,
+.bar.life .filling-bar,
+input[id="life"]:checked ~ .chart .filling-bar {
+  background-color: rgba(0, 255, 213, 0.6);
+}
+
+.bar.life .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #00ffd5;
+}
+
+.bar.life .floor .filling-bar {
+  box-shadow: 0em 0em 2em #00ffd5;
+}
+
+/* Toxic */
+.bar.toxic .side-a,
+input[id="toxic"]:checked ~ .chart .side-a,
+.bar.toxic .filling-bar,
+input[id="toxic"]:checked ~ .chart .filling-bar {
+  background-color: rgba(0, 255, 0, 0.6);
+}
+
+.bar.toxic .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #00ff00;
+}
+
+.bar.toxic .floor .filling-bar {
+  box-shadow: 0em 0em 2em #00ff00;
+}
+
+/* Sand */
+.bar.sand .side-a,
+input[id="sand"]:checked ~ .chart .side-a,
+.bar.sand .filling-bar,
+input[id="sand"]:checked ~ .chart .filling-bar {
+  background-color: rgba(169, 144, 117, 0.6);
+}
+
+.bar.sand .side-0 .filling-bar {
+  box-shadow: -0.5em -1.5em 4em #a99075;
+}
+
+.bar.sand .floor .filling-bar {
+  box-shadow: 0em 0em 2em #a99075;
+}
+
+/* Background Faces */
+.chart .bar.yellow-face .face {
+  background-color: rgba(241, 196, 15, 0.2);
+}
+
+.chart .bar.lime-face .face {
+  background-color: rgba(118, 201, 0, 0.2);
+}
+
+.chart .bar.red-face .face {
+  background-color: rgba(236, 0, 140, 0.2);
+}
+
+.chart .bar.navy-face .face {
+  background-color: rgba(10, 64, 105, 0.2);
+}
+
+.chart .bar.cyan-face .face {
+  background-color: rgba(87, 202, 244, 0.2);
+}
+
+.chart .bar.gray-face .face {
+  background-color: rgba(68, 68, 68, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.chart .bar.lightGray-face .face {
+  background-color: rgba(145, 145, 145, 0.2);
+}
+
+.bar-0 .filling-bar,
+input[id="pos-0"]:checked ~ .chart .filling-bar {
+  width: 0%;
+}
+
+.bar-1 .filling-bar {
+  width: 1%;
+}
+
+.bar-2 .filling-bar {
+  width: 2%;
+}
+
+.bar-3 .filling-bar {
+  width: 3%;
+}
+
+.bar-4 .filling-bar {
+  width: 4%;
+}
+
+.bar-5 .filling-bar {
+  width: 5%;
+}
+
+.bar-6 .filling-bar {
+  width: 6%;
+}
+
+.bar-7 .filling-bar {
+  width: 7%;
+}
+
+.bar-8 .filling-bar {
+  width: 8%;
+}
+
+.bar-9 .filling-bar {
+  width: 9%;
+}
+
+.bar-10 .filling-bar {
+  width: 10%;
+}
+
+.bar-11 .filling-bar {
+  width: 11%;
+}
+
+.bar-12 .filling-bar {
+  width: 12%;
+}
+
+.bar-13 .filling-bar {
+  width: 13%;
+}
+
+.bar-14 .filling-bar {
+  width: 14%;
+}
+
+.bar-15 .filling-bar {
+  width: 15%;
+}
+
+.bar-16 .filling-bar {
+  width: 16%;
+}
+
+.bar-17 .filling-bar {
+  width: 17%;
+}
+
+.bar-18 .filling-bar {
+  width: 18%;
+}
+
+.bar-19 .filling-bar {
+  width: 19%;
+}
+
+.bar-20 .filling-bar,
+input[id="pos-20"]:checked ~ .chart .filling-bar {
+  width: 20%;
+}
+
+.bar-21 .filling-bar {
+  width: 21%;
+}
+
+.bar-22 .filling-bar {
+  width: 22%;
+}
+
+.bar-23 .filling-bar {
+  width: 23%;
+}
+
+.bar-24 .filling-bar {
+  width: 24%;
+}
+
+.bar-25 .filling-bar,
+input[id="pos-25"]:checked ~ .chart .filling-bar {
+  width: 25%;
+}
+
+.bar-26 .filling-bar {
+  width: 26%;
+}
+
+.bar-27 .filling-bar {
+  width: 27%;
+}
+
+.bar-28 .filling-bar {
+  width: 28%;
+}
+
+.bar-29 .filling-bar {
+  width: 29%;
+}
+
+.bar-30 .filling-bar {
+  width: 30%;
+}
+
+.bar-31 .filling-bar {
+  width: 31%;
+}
+
+.bar-32 .filling-bar {
+  width: 32%;
+}
+
+.bar-33 .filling-bar,
+input[id="pos-33"]:checked ~ .chart .filling-bar {
+  width: 33%;
+}
+
+.bar-34 .filling-bar {
+  width: 34%;
+}
+
+.bar-35 .filling-bar {
+  width: 35%;
+}
+
+.bar-36 .filling-bar {
+  width: 36%;
+}
+
+.bar-37 .filling-bar {
+  width: 37%;
+}
+
+.bar-38 .filling-bar {
+  width: 38%;
+}
+
+.bar-39 .filling-bar {
+  width: 39%;
+}
+
+.bar-40 .filling-bar,
+input[id="pos-40"]:checked ~ .chart .filling-bar {
+  width: 40%;
+}
+
+.bar-41 .filling-bar {
+  width: 41%;
+}
+
+.bar-42 .filling-bar {
+  width: 42%;
+}
+
+.bar-43 .filling-bar {
+  width: 43%;
+}
+
+.bar-44 .filling-bar {
+  width: 44%;
+}
+
+.bar-45 .filling-bar {
+  width: 45%;
+}
+
+.bar-46 .filling-bar {
+  width: 46%;
+}
+
+.bar-47 .filling-bar {
+  width: 47%;
+}
+
+.bar-48 .filling-bar {
+  width: 48%;
+}
+
+.bar-49 .filling-bar {
+  width: 49%;
+}
+
+.bar-50 .filling-bar,
+input[id="pos-50"]:checked ~ .chart .filling-bar {
+  width: 50%;
+}
+
+.bar-51 .filling-bar {
+  width: 51%;
+}
+
+.bar-52 .filling-bar {
+  width: 52%;
+}
+
+.bar-53 .filling-bar {
+  width: 53%;
+}
+
+.bar-54 .filling-bar {
+  width: 54%;
+}
+
+.bar-55 .filling-bar {
+  width: 55%;
+}
+
+.bar-56 .filling-bar {
+  width: 56%;
+}
+
+.bar-57 .filling-bar {
+  width: 57%;
+}
+
+.bar-58 .filling-bar {
+  width: 58%;
+}
+
+.bar-59 .filling-bar {
+  width: 59%;
+}
+
+.bar-60 .filling-bar,
+input[id="pos-60"]:checked ~ .chart .filling-bar {
+  width: 60%;
+}
+
+.bar-61 .filling-bar {
+  width: 61%;
+}
+
+.bar-62 .filling-bar {
+  width: 62%;
+}
+
+.bar-63 .filling-bar {
+  width: 63%;
+}
+
+.bar-64 .filling-bar {
+  width: 64%;
+}
+
+.bar-65 .filling-bar {
+  width: 65%;
+}
+
+.bar-66 .filling-bar,
+input[id="pos-66"]:checked ~ .chart .filling-bar {
+  width: 66%;
+}
+
+.bar-67 .filling-bar {
+  width: 67%;
+}
+
+.bar-68 .filling-bar {
+  width: 68%;
+}
+
+.bar-69 .filling-bar {
+  width: 69%;
+}
+
+.bar-70 .filling-bar {
+  width: 70%;
+}
+
+.bar-71 .filling-bar {
+  width: 71%;
+}
+
+.bar-72 .filling-bar {
+  width: 72%;
+}
+
+.bar-73 .filling-bar {
+  width: 73%;
+}
+
+.bar-74 .filling-bar {
+  width: 74%;
+}
+
+.bar-75 .filling-bar,
+input[id="pos-75"]:checked ~ .chart .filling-bar {
+  width: 75%;
+}
+
+.bar-76 .filling-bar {
+  width: 76%;
+}
+
+.bar-77 .filling-bar {
+  width: 77%;
+}
+
+.bar-78 .filling-bar {
+  width: 78%;
+}
+
+.bar-79 .filling-bar {
+  width: 79%;
+}
+
+.bar-80 .filling-bar,
+input[id="pos-80"]:checked ~ .chart .filling-bar {
+  width: 80%;
+}
+
+.bar-81 .filling-bar {
+  width: 81%;
+}
+
+.bar-82 .filling-bar {
+  width: 82%;
+}
+
+.bar-83 .filling-bar {
+  width: 83%;
+}
+
+.bar-84 .filling-bar {
+  width: 84%;
+}
+
+.bar-85 .filling-bar {
+  width: 85%;
+}
+
+.bar-86 .filling-bar {
+  width: 86%;
+}
+
+.bar-87 .filling-bar {
+  width: 87%;
+}
+
+.bar-88 .filling-bar {
+  width: 88%;
+}
+
+.bar-89 .filling-bar {
+  width: 89%;
+}
+
+.bar-90 .filling-bar {
+  width: 90%;
+}
+
+.bar-91 .filling-bar {
+  width: 91%;
+}
+
+.bar-92 .filling-bar {
+  width: 92%;
+}
+
+.bar-93 .filling-bar {
+  width: 93%;
+}
+
+.bar-94 .filling-bar {
+  width: 94%;
+}
+
+.bar-95 .filling-bar {
+  width: 95%;
+}
+
+.bar-96 .filling-bar {
+  width: 96%;
+}
+
+.bar-97 .filling-bar {
+  width: 97%;
+}
+
+.bar-98 .filling-bar {
+  width: 98%;
+}
+
+.bar-99 .filling-bar {
+  width: 99%;
+}
+
+.bar-100 .filling-bar,
+input[id="pos-100"]:checked ~ .chart .filling-bar {
+  width: 100%;
+}
+
+/*
+END // CHART'S RULES
+*
+*
+*/
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-bottom: 2em;
+  border-bottom: 1px dotted rgba(68, 68, 68, 0.4);
+}
+
+label {
+  box-sizing: border-box;
+  padding: 1em;
+  margin: 0 0.2em;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  color: #3e8ed0;
+  border: 1px solid rgba(254, 254, 254, 0.6);
+  border-radius: 0;
+  flex: 1;
+}
+label:first-child {
+  margin-left: 0;
+  border-radius: 0.2em 0 0 0.2em;
+}
+label:last-child {
+  margin-right: 0;
+  border-radius: 0 0.2em 0.2em 0;
+}
+
+input[id="pos-0"]:checked ~ .actions label[for="pos-0"],
+input[id="pos-20"]:checked ~ .actions label[for="pos-20"],
+input[id="pos-40"]:checked ~ .actions label[for="pos-40"],
+input[id="pos-100"]:checked ~ .actions label[for="pos-100"],
+input[id="water"]:checked ~ .actions label[for="water"],
+input[id="lightning"]:checked ~ .actions label[for="lightning"],
+input[id="nature"]:checked ~ .actions label[for="nature"] {
+  color: white;
+  border: 1px solid #031523;
+  background-color: #3e8ed0;
+}

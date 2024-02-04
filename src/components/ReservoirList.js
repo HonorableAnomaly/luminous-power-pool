@@ -1,5 +1,11 @@
+import Reservoir from "./Reservoir";
+
 function ReservoirList() {
-  return "ReservoirList";
+  return (
+    <div>
+      <Reservoir />
+    </div>
+  );
 }
 
 export default ReservoirList;
