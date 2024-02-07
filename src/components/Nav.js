@@ -46,7 +46,7 @@ function Nav() {
 
                 <div class='navbar-dropdown'>
                   <a class='navbar-item'>About</a>
-                  <a class='navbar-item'>Jobs</a>
+                  <a class='navbar-item'>Dictionary</a>
                   <a class='navbar-item'>Contact</a>
                   <hr class='navbar-divider' />
                   <a class='navbar-item'>Report an issue</a>
@@ -57,10 +57,9 @@ function Nav() {
             <div class='navbar-end'>
               <div class='navbar-item'>
                 <div class='buttons'>
-                  <a class='button is-primary'>
-                    <strong>Sign up</strong>
+                  <a class='button is-dark'>
+                    <strong>Dark Mode</strong>
                   </a>
-                  <a class='button is-light'>Log in</a>
                 </div>
               </div>
             </div>

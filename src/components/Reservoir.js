@@ -1,3 +1,5 @@
+import Character from "./Character";
+import Counter from "./Counter";
 import PowerBar from "./PowerBar";
 
 function Reservoir() {
@@ -17,18 +19,20 @@ function Reservoir() {
                   <figure class='image is-8by8'>
                     <img
                       src='https://bulma.io/images/placeholders/96x96.png'
-                      alt='Placeholder'
+                      alt='Tribe Symbol'
                     />
                   </figure>
                 </div>
                 <div class='media-content'>
-                  <p class='title is-4'>John Smith</p>
-                  <p class='subtitle is-6'>@johnsmith</p>
+                  <p class='title is-4'>{Character.name}</p>
+                  <p class='subtitle is-6'>{Character.tribe}</p>
+                  <Counter />
                 </div>
               </div>
 
               <div class='content'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.<a href='#'>#css</a> <a href='#'>#responsive</a>
+                {Character.bio}
+                <a href='#'>#responsive</a>
                 <br />
                 <time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>
               </div>
