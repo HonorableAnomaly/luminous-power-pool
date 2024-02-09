@@ -1,10 +1,14 @@
+import NewReservoir from "./NewReservoir";
 import Reservoir from "./Reservoir";
 
 function ReservoirList() {
   return (
-    <div>
-      <Reservoir />
-    </div>
+    <>
+      <div className='columns'>
+        <Reservoir />
+        <NewReservoir />
+      </div>
+    </>
   );
 }
 

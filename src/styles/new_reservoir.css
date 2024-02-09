@@ -1,0 +1,32 @@
+.add-new {
+  display: flex;
+  justify-content: center;
+  margin-left: 15px;
+  box-shadow: 2px 2px 2px;
+}
+
+.add-new:hover {
+  animation-name: jiggle;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+
+  background-color: gray;
+  color: white;
+}
+
+@keyframes jiggle {
+  40%,
+  60% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  56% {
+    transform: scale(0.9, 1.1) translate(0, -5px);
+  }
+  59% {
+    transform: scale(1, 1) translate(0, -3px);
+  }
+}
