@@ -10,6 +10,7 @@
     "axios": "^1.6.7",
     "bulma": "^0.9.4",
     "bulma-start": "^0.0.5",
+    "classnames": "^2.5.1",
     "json-server": "^1.0.0-alpha.23",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -19,6 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:server": "json-server --watch db.json --port 3005",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

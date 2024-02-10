@@ -1,12 +1,10 @@
 import "../styles/counter.css";
+import Character from "./Character";
 
-function Counter() {
-  return (
-    <div>
-      <button className='button counter-button'>-</button>
-      <button className='button counter-button'>+</button>
-    </div>
-  );
+function Counter(character) {
+  let power = Character.power;
+
+  return <div className='counter'>{power}</div>;
 }
 
 export default Counter;

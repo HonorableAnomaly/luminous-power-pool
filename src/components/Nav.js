@@ -1,3 +1,5 @@
+import "../styles/nav.css";
+
 function Nav() {
   return (
     <div>
@@ -50,6 +52,14 @@ function Nav() {
                   <a class='navbar-item'>Contact</a>
                   <hr class='navbar-divider' />
                   <a class='navbar-item'>Report an issue</a>
+                </div>
+              </div>
+
+              <div class='navbar-item'>
+                <div class='buttons'>
+                  <a class='button is-primary add-new'>
+                    <strong>Add New Reservoir</strong>
+                  </a>
                 </div>
               </div>
             </div>

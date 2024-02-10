@@ -1,15 +1,12 @@
 import "../styles/powerbar.css";
 
-function PowerBar() {
+function PowerBar({ character }) {
   return (
     <div class='column reservoir'>
       <div
         class='card'
         id='${tribe}'
       >
-        {/* <div class='card-image'> */}
-        {/* <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" /> */}
         <article>
           <input
             type='radio'
@@ -37,7 +34,6 @@ function PowerBar() {
             </div>
           </div>
         </article>
-        {/* </div> */}
       </div>
     </div>
   );

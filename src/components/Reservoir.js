@@ -1,17 +1,18 @@
-import Character from "./Character";
 import Counter from "./Counter";
+import CounterButtons from "./CounterButtons";
 import PowerBar from "./PowerBar";
 
-function Reservoir() {
+function Reservoir({ character }) {
   return (
     <>
       <div className='column is-one-fifth'>
         <div class='card'>
-          <div class='card-image'>
-            <figure class='image is-4by3'>
-              <PowerBar />
-            </figure>
-          </div>
+          {character.name}
+          {character.tribe}
+          <PowerBar
+            key={character.id}
+            character={character}
+          />
           <div class='card-content'>
             <div class='media'>
               <div class='media-left'>
@@ -23,15 +24,17 @@ function Reservoir() {
                 </figure>
               </div>
               <div class='media-content'>
-                <p class='title is-4'>{Character.name}</p>
-                <p class='subtitle is-6'>{Character.tribe}</p>
-                <p class='subtitle is-6'>{Character.rank}</p>
-                <Counter />
+                <p class='title is-4'>{character.rank}</p>
+                <p class='subtitle is-6'>
+                  <Counter />
+                </p>
+                <p class='subtitle is-6'></p>
+                <CounterButtons />
               </div>
             </div>
 
             <div class='content'>
-              {Character.bio}
+              {character.bio}
               <br />
               <time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>
             </div>
