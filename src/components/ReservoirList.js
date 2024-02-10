@@ -40,10 +40,10 @@ function ReservoirList({ character }) {
   return (
     <>
       <div className='columns'>
-        <Reservoir
+        {/* <Reservoir
           key={character.id}
           character={character}
-        />
+        /> */}
         {content}
       </div>
     </>

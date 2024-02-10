@@ -1,16 +1,15 @@
-import "./styles/reservoir_list.css";
-
 import Nav from "./components/Nav";
 import ReservoirList from "./components/ReservoirList";
+import "./styles/reservoir_list.css";
 
 function App() {
   return (
-    <div>
+    <>
       <Nav />
       <div className='ReservoirList'>
         <ReservoirList />
       </div>
-    </div>
+    </>
   );
 }
 

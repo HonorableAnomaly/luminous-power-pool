@@ -6,7 +6,7 @@ function NewReservoir() {
   return (
     <div>
       <button
-        class='button add-new'
+        className='button add-new'
         onClick={addNewReservoir}
       >
         Add New Reservoir

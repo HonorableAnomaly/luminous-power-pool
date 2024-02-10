@@ -5,13 +5,13 @@ function Nav() {
     <div>
       <div>
         <nav
-          class='navbar'
+          className='navbar'
           role='navigation'
           aria-label='main navigation'
         >
-          <div class='navbar-brand'>
+          <div className='navbar-brand'>
             <a
-              class='navbar-item'
+              className='navbar-item'
               href='https://bulma.io'
             >
               <img
@@ -23,7 +23,7 @@ function Nav() {
 
             <a
               role='button'
-              class='navbar-burger'
+              className='navbar-burger'
               aria-label='menu'
               aria-expanded='false'
               data-target='navbarBasicExample'
@@ -36,38 +36,38 @@ function Nav() {
 
           <div
             id='navbarBasicExample'
-            class='navbar-menu'
+            className='navbar-menu'
           >
-            <div class='navbar-start'>
-              <a class='navbar-item'>Home</a>
+            <div className='navbar-start'>
+              <a className='navbar-item'>Home</a>
 
-              <a class='navbar-item'>Documentation</a>
+              <a className='navbar-item'>Documentation</a>
 
-              <div class='navbar-item has-dropdown is-hoverable'>
-                <a class='navbar-link'>More</a>
+              <div className='navbar-item has-dropdown is-hoverable'>
+                <a className='navbar-link'>More</a>
 
-                <div class='navbar-dropdown'>
-                  <a class='navbar-item'>About</a>
-                  <a class='navbar-item'>Dictionary</a>
-                  <a class='navbar-item'>Contact</a>
-                  <hr class='navbar-divider' />
-                  <a class='navbar-item'>Report an issue</a>
+                <div className='navbar-dropdown'>
+                  <a className='navbar-item'>About</a>
+                  <a className='navbar-item'>Dictionary</a>
+                  <a className='navbar-item'>Contact</a>
+                  <hr className='navbar-divider' />
+                  <a className='navbar-item'>Report an issue</a>
                 </div>
               </div>
 
-              <div class='navbar-item'>
-                <div class='buttons'>
-                  <a class='button is-primary add-new'>
+              <div className='navbar-item'>
+                <div className='buttons'>
+                  <a className='button is-primary add-new'>
                     <strong>Add New Reservoir</strong>
                   </a>
                 </div>
               </div>
             </div>
 
-            <div class='navbar-end'>
-              <div class='navbar-item'>
-                <div class='buttons'>
-                  <a class='button is-dark'>
+            <div className='navbar-end'>
+              <div className='navbar-item'>
+                <div className='buttons'>
+                  <a className='button is-dark'>
                     <strong>Dark Mode</strong>
                   </a>
                 </div>
