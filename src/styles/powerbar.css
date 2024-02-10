@@ -903,6 +903,8 @@ label:last-child {
 input[id="pos-0"]:checked ~ .actions label[for="pos-0"],
 input[id="pos-20"]:checked ~ .actions label[for="pos-20"],
 input[id="pos-40"]:checked ~ .actions label[for="pos-40"],
+input[id="pos-60"]:checked ~ .actions label[for="pos-60"],
+input[id="pos-80"]:checked ~ .actions label[for="pos-80"],
 input[id="pos-100"]:checked ~ .actions label[for="pos-100"],
 input[id="water"]:checked ~ .actions label[for="water"],
 input[id="lightning"]:checked ~ .actions label[for="lightning"],
