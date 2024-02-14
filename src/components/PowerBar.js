@@ -1,3 +1,4 @@
+import characters from "../db.json";
 import "../styles/powerbar.css";
 
 function PowerBar({ character }) {
@@ -5,16 +6,16 @@ function PowerBar({ character }) {
     <div className='column reservoir'>
       <div
         className='card'
-        id={character.tribe}
+        id={characters.tribe}
       >
         <article>
-          <input
+          {/* <input
             type='radio'
             name='switch-color'
-            className={character.power}
-            id={character.power}
+            className={characters.power}
+            id={characters.power}
             checked
-          />
+          /> */}
           <div className='chart'>
             <div className='bar'>
               <div className='face top'>

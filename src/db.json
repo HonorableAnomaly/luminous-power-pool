@@ -1,0 +1,49 @@
+{
+  "characters": [
+    {
+      "id": 0,
+      "name": "Empty",
+      "tribe": "No Affiliation",
+      "rank": "N/A",
+      "power": 0,
+      "bio": "An empty reservoir. Choose a character from the menu to add a Spectrumancer to the fight!",
+      "dead": false
+    },
+    {
+      "id": 1,
+      "name": "Laithe Khalendros",
+      "tribe": "The Frostfloe",
+      "rank": "Tide",
+      "power": 3,
+      "bio": "",
+      "dead": false
+    },
+    {
+      "id": 2,
+      "name": "Delrehn",
+      "tribe": "The Rangers of Taigren",
+      "rank": "Elder",
+      "power": 3,
+      "bio": "",
+      "dead": false
+    },
+    {
+      "id": 3,
+      "name": "Trinesta Shenali",
+      "tribe": "The Keepers of Thunder",
+      "rank": "Keeper",
+      "power": 3,
+      "bio": "",
+      "dead": false
+    },
+    {
+      "id": 4,
+      "name": "Novellon",
+      "tribe": "The Infrared Marauders",
+      "rank": "Marauder",
+      "power": 3,
+      "bio": "",
+      "dead": false
+    }
+  ]
+}

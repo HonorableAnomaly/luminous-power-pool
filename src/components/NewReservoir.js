@@ -1,7 +1,12 @@
 import "../styles/new_reservoir.css";
+import Reservoir from "./Reservoir";
+import ReservoirList from "./ReservoirList";
 
 function NewReservoir() {
-  const addNewReservoir = () => {};
+  const addNewReservoir = () => {
+    console.log(<Reservoir />);
+    ReservoirList.push(<Reservoir />);
+  };
 
   return (
     <div>

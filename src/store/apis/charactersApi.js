@@ -20,16 +20,16 @@ const charactersApi = createApi({
   endpoints(builder) {
     return {
       fetchCharacters: builder.query({
-        // providesTags: (result, error, character) => {
-        //   const tags = result.map((character) => {
-        //     return {
-        //       type: "Character",
-        //       id: character.id
-        //     };
-        //   });
-        //   tags.push({ type: "UsersAlbums", id: character.id });
-        //   return tags;
-        // },
+        providesTags: (result, error, character) => {
+          const tags = result.map((character) => {
+            return {
+              type: "Character",
+              id: character.id
+            };
+          });
+          tags.push({ type: "UsersAlbums", id: character.id });
+          return tags;
+        },
         query: (character) => {
           return {
             url: "/characters",

@@ -1,6 +1,6 @@
 import Nav from "./components/Nav";
 import ReservoirList from "./components/ReservoirList";
-import "./styles/reservoir_list.css";
+import "./styles/app.css";
 
 function App() {
   return (

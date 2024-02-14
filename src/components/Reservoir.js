@@ -1,3 +1,4 @@
+import characters from "../db.json";
 import Counter from "./Counter";
 import CounterButtons from "./CounterButtons";
 import PowerBar from "./PowerBar";
@@ -7,10 +8,12 @@ function Reservoir({ character }) {
     <>
       <div className='column is-one-fifth'>
         <div className='card'>
-          {character.name}
-          {character.tribe}
+          <p>Laithe Khalendros</p>
+          <p>The Frostfloe</p>
+          {/* {characters.name}
+          {characters.tribe} */}
           <PowerBar
-            key={character.id}
+            key={characters.id}
             character={character}
           />
           <div className='card-content'>
@@ -24,25 +27,28 @@ function Reservoir({ character }) {
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='title is-4'>{character.rank}</p>
-                <p className='subtitle is-6'>
-                  <Counter
-                    key={character.id}
-                    character={character}
-                  />
-                </p>
+                <p className='title is-4'>Tide</p>
+                {/* <p className='title is-4'>{characters.rank}</p> */}
+                <p className='subtitle is-6'></p>
+                <Counter
+                  key={characters.id}
+                  character={character}
+                />
+
                 <p className='subtitle is-6'></p>
                 <CounterButtons
-                  key={character.id}
+                  key={characters.id}
                   character={character}
                 />
               </div>
             </div>
 
             <div className='content'>
-              {character.bio}
+              <p>Bio</p>
+              {/* {characters.bio} */}
               <br />
-              <time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>
+              <p>Extra Info</p>
+              {/* <time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time> */}
             </div>
           </div>
         </div>
