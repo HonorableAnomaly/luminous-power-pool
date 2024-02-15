@@ -9,13 +9,6 @@ function PowerBar({ character }) {
         id={characters.tribe}
       >
         <article>
-          {/* <input
-            type='radio'
-            name='switch-color'
-            className={characters.power}
-            id={characters.power}
-            checked
-          /> */}
           <div className='chart'>
             <div className='bar'>
               <div className='face top'>

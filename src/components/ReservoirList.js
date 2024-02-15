@@ -1,19 +1,19 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useThunk } from "../hooks/use-thunk";
-import { fetchCharacters } from "../store";
+// import { useEffect } from "react";
+// import { useSelector } from "react-redux";
+// import { useThunk } from "../hooks/use-thunk";
+// import { fetchCharacters } from "../store";
 import Reservoir from "./Reservoir";
 
 function ReservoirList({ character }) {
-  const [doFetchCharacters, isLoadingCharacters, loadingCharactersError] = useThunk(fetchCharacters);
+  // const [doFetchCharacters, isLoadingCharacters, loadingCharactersError] = useThunk(fetchCharacters);
 
-  const { data } = useSelector((state) => {
-    return state.characters;
-  });
+  // const { data } = useSelector((state) => {
+  //   return state.characters;
+  // });
 
-  useEffect(() => {
-    doFetchCharacters();
-  }, [doFetchCharacters]);
+  // useEffect(() => {
+  //   doFetchCharacters();
+  // }, [doFetchCharacters]);
 
   // let content;
   // if (isLoadingCharacters) {

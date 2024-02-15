@@ -1,10 +1,10 @@
+import characters from "../db.json";
 import "../styles/counter.css";
-import Character from "./Character";
 
 function Counter(character) {
-  let power = Character.power;
+  let power = characters.power;
 
-  return <div className='counter'>{power}</div>;
+  return <div className='counter'>3</div>;
 }
 
 export default Counter;
