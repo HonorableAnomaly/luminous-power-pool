@@ -1,13 +1,46 @@
-import { characters } from "../db.json";
+// import { useEffect } from "react";
+// import { useThunk } from "../hooks/use-thunk";
+// import Skeleton from "./Skeleton";
+import { useFetchCharactersQuery } from "../store";
 import Counter from "./Counter";
 import CounterButtons from "./CounterButtons";
 import PowerBar from "./PowerBar";
 
 function Reservoir({ character }) {
-  const data = { characters };
-  console.log(data);
-  const idsArray = JSON.parse(data);
-  console.log(idsArray);
+  // const [doFetchCharacters, isLoadingCharacters, loadingCharactersError] = useThunk(fetchCharacters);
+  const results = useFetchCharactersQuery(character);
+
+  // const { data } = useSelector((state) => {
+  //   return state.characters;
+  // });
+
+  console.log("Data is: " + results);
+
+  // useEffect(() => {
+  //   doFetchCharacters();
+  // }, [doFetchCharacters]);
+
+  // let content;
+  // if (isLoadingCharacters) {
+  //   content = (
+  //     <Skeleton
+  //       times={1}
+  //       className='h-10 w-full'
+  //     />
+  //   );
+  // } else if (loadingCharactersError) {
+  //   return <div>Error fetching data...</div>;
+  // } else {
+  //   content = data.map((character) => {
+  //     return (
+  //       <Reservoir
+  //         key={character.id}
+  //         character={character}
+  //       />
+  //     );
+  //   });
+  //   console.log(content);
+  // }
 
   return (
     <>

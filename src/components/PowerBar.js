@@ -1,4 +1,3 @@
-import characters from "../db.json";
 import "../styles/powerbar.css";
 
 function PowerBar({ character }) {
@@ -6,7 +5,7 @@ function PowerBar({ character }) {
     <div className='column reservoir'>
       <div
         className='card'
-        id={characters.tribe}
+        // id={characters.tribe}
       >
         <article>
           <div className='chart'>

@@ -1,8 +1,7 @@
-import characters from "../db.json";
 import "../styles/counter.css";
 
-function Counter(character) {
-  let power = characters.power;
+function Counter({ character }) {
+  // let power = characters.power;
 
   return <div className='counter'>3</div>;
 }

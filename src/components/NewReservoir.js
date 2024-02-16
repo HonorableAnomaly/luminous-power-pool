@@ -2,7 +2,7 @@ import "../styles/new_reservoir.css";
 import Reservoir from "./Reservoir";
 import ReservoirList from "./ReservoirList";
 
-function NewReservoir() {
+function NewReservoir({ character }) {
   const addNewReservoir = () => {
     console.log(<Reservoir />);
     ReservoirList.push(<Reservoir />);
