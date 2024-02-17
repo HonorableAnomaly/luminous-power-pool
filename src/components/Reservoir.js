@@ -1,7 +1,9 @@
 // import { useEffect } from "react";
 // import { useThunk } from "../hooks/use-thunk";
 // import Skeleton from "./Skeleton";
+// import { useSelector } from "react-redux";
 import { useFetchCharactersQuery } from "../store";
+import "../styles/reservoir.css";
 import Counter from "./Counter";
 import CounterButtons from "./CounterButtons";
 import PowerBar from "./PowerBar";
@@ -14,6 +16,7 @@ function Reservoir({ character }) {
   //   return state.characters;
   // });
 
+  // console.log(data);
   console.log("Data is: " + results);
 
   // useEffect(() => {

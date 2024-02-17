@@ -3,8 +3,16 @@ import { fetchCharacters } from "../thunks/fetchCharacters";
 
 const charactersSlice = createSlice({
   name: "characters",
+  // type: TCharacter = {
+  //   id?: Number,
+  //   name?: String,
+  //   tribe?: String,
+  //   rank?: String,
+  //   power?: Number,
+  //   bio?: String
+  // },
   initialState: {
-    data: [],
+    data: [{ id: Number, name: String, tribe: String, rank: String, power: Number, bio: String }],
     isLoading: false,
     error: null
   },
