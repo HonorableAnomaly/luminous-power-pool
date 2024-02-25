@@ -1,8 +1,9 @@
 // import { useEffect } from "react";
 // import { useThunk } from "../hooks/use-thunk";
 // import Skeleton from "./Skeleton";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useFetchCharactersQuery } from "../store";
+// import { fetchCharacters } from "../store/thunks/fetchCharacters";
 import "../styles/reservoir.css";
 import Counter from "./Counter";
 import CounterButtons from "./CounterButtons";
@@ -12,11 +13,11 @@ function Reservoir({ character }) {
   // const [doFetchCharacters, isLoadingCharacters, loadingCharactersError] = useThunk(fetchCharacters);
   const results = useFetchCharactersQuery(character);
 
-  // const { data } = useSelector((state) => {
-  //   return state.characters;
-  // });
+  const { data } = useSelector((state) => {
+    return state.characters;
+  });
 
-  // console.log(data);
+  console.log(data);
   console.log("Data is: " + results);
 
   // useEffect(() => {
@@ -25,23 +26,25 @@ function Reservoir({ character }) {
 
   // let content;
   // if (isLoadingCharacters) {
-  //   content = (
-  //     <Skeleton
-  //       times={1}
-  //       className='h-10 w-full'
-  //     />
-  //   );
+  //   // content = (
+  //   //   <Skeleton
+  //   //     times={1}
+  //   //     className='h-10 w-full'
+  //   //   />
+  //   // );
+  //   content = "Loading Data...";
   // } else if (loadingCharactersError) {
   //   return <div>Error fetching data...</div>;
   // } else {
-  //   content = data.map((character) => {
-  //     return (
-  //       <Reservoir
-  //         key={character.id}
-  //         character={character}
-  //       />
-  //     );
-  //   });
+  //   content =
+  //     data.map((character) => {
+  //       return (
+  //         <Reservoir
+  //           key={character.id}
+  //           character={character}
+  //         />
+  //       );
+  //     });
   //   console.log(content);
   // }
 

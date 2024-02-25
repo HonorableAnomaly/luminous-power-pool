@@ -12,7 +12,8 @@ const charactersSlice = createSlice({
   //   bio?: String
   // },
   initialState: {
-    data: [{ id: Number, name: String, tribe: String, rank: String, power: Number, bio: String }],
+    // data: [{ id: Number, name: String, tribe: String, rank: String, power: Number, bio: String }],
+    data: [],
     isLoading: false,
     error: null
   },
